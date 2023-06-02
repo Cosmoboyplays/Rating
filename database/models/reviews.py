@@ -2,7 +2,7 @@ from datetime import datetime
 
 from sqlalchemy import *
 
-from database.models import Base
+from database.models.base import Base
 
 
 class Reviews(Base):

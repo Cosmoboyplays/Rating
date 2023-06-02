@@ -309,10 +309,12 @@ def add_rev(est, id_area, user_id, id_1C ):
                 except (Exception,):
                     flash('Ошибка добавления в базу', category='error')
     return render_template('page2.html', est=est, id_area=id_area, user_id=user_id)
-                
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    import uvicorn
+    from asgiref.wsgi import WsgiToAsgi
 
+    asgi_app = WsgiToAsgi(app)
+    uvicorn.run(asgi_app, host='0.0.0.0', port=5000)
 

@@ -1,6 +1,6 @@
 from sqlalchemy import *
 
-from database.models import Base
+from database.models.base import Base
 
 
 class Links(Base):

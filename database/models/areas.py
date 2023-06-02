@@ -1,4 +1,4 @@
-from database.models import Base
+from database.models.base import Base
 from sqlalchemy import *
 
 
