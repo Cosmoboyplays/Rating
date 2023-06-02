@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Reviews
+{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+        <h1>Пожалуйста напишите отзыв о нас</h1>
+        <form action="/reviews/{{ est }}/{{ id_area }}/{{ user_id }}/{{ id_1C }}" method="POST" >
+            <input type="text" name="mail" id="mail" class="form-control" placeholder="Введите email или телефон"><br>
+            <textarea name="reviews" id="reviews" class="form-control" placeholder="Отзыв"></textarea><br>
+            <input type="submit"  class="btn btn-success" value="Отправить"><br>
+            <br>
+            {% for cat, msg in get_flashed_messages(True) %}
+            <div class="flash {{cat}}">{{msg}}</div>
+            {% endfor %}   
+        </form>
+</div>
+{% endblock %}

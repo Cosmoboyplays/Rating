@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Links
+{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+   <h1>Рады, что вам понравилось у нас, пожалуйста оставьте отзыв на одном из этих сервисов</h1>   
+   <div class="conn">
+      {% for i in links %}
+      {% if i.checkbox %}
+          <a href="{{ i.link }}" target="_blank"><button class='btn'>{{ i.name }}</button></a>
+      {% endif %}    
+      {% endfor %}
+
+    </div>
+
+</div>
+{% endblock %}
+

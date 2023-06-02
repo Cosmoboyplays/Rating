@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block title %}
+Registration
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+        <h1>Регистрация</h1>
+        <form action="/reg" method="POST">
+            <p><label>Ваше имя: </label> <input type="text" name="name" id="name" class="form-control" placeholder="Введите имя"><br>    
+            <p><label>Логин: </label> <input type="text" name="login" id="login" class="form-control" placeholder="Введите логин"><br>
+            <p><label>Пароль: </label> <input type="password" name="password" id="password" class="form-control" placeholder="Введите пароль"><br>
+            <p><label>Пароль 2: </label> <input type="password" name="password2" id="password2" class="form-control" placeholder="Повторите пароль"><br>    
+            <input type="submit"  class="btn btn-success" value="Зарегистрироваться">
+        </form>
+
+        <form action="/enter" method="GET">
+                <button class="btn btn-success">Войти</button>
+        </form> 
+          
+        {% for cat, msg in get_flashed_messages(True) %}
+            <div class="flash {{cat}}">{{msg}}</div>
+        {% endfor %}   
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+
+{% block title %}
+Add area
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+
+    {% for cat, msg in get_flashed_messages(True) %}
+    <div class="flash {{ cat }}">{{msg}}</div>
+    {% endfor %}  
+
+    <form action="/add_area" method="POST" class="add_area">
+        <h2>Добавить новое место</h2>
+        <p><h5><label>Название места(видите только вы):</label></h5> 
+            <input type="text" name="area" id="area" class="form-control" placeholder="Введите название на английском"><br>
+
+                
+        <p><h6><label> Площадка отзывов 1: </label> </h6>
+            <input type="text" name="place_1" id="place_1" class="form-control" placeholder="Надпись на кнопке">
+            <input type="text" name="place_1_link" id="place_1_link" class="form-control" placeholder="ссылка">
+            Активировать<input type="checkbox" class="form-check-input" id="save-info" value='1' name="checkbox1">
+        <br>
+            
+        <p><h6><label>Площадка отзывов 2: </label> </h6>
+            <input type="text" name="place_2" id="place_2" class="form-control" placeholder="Надпись на кнопке">
+            <input type="text" name="place_2_link" id="place_2_link" class="form-control" placeholder="ссылка">
+            Активировать<input type="checkbox" class="form-check-input" id="save-info" value='1' name="checkbox2">
+            
+        <p><h6><label>Площадка отзывов 3: </label> </h6>
+            <input type="text" name="place_3" id="place_3" class="form-control" placeholder="Надпись на кнопке">
+            <input type="text" name="place_3_link" id="place_3_link" class="form-control" placeholder="ссылка">  
+            Активировать<input type="checkbox" class="form-check-input" id="save-info" value='1' name="checkbox3"><br><br>
+
+        <input type="submit"  class="btn btn-success" value="Добавить">
+    </form>
+</div>
+{% endblock %}
+

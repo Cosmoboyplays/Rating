@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% block title %}
+Отзывы {{ area }}   
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <h3>Отзывы</h3>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col"><ya-tr-span data-index="21-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Header" data-translation="Заголовок" data-ch="0" data-type="trSpan">Место</ya-tr-span></th>
+              <th scope="col"><ya-tr-span data-index="22-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Header" data-translation="Заголовок" data-ch="1" data-type="trSpan">Контакты</ya-tr-span></th>
+              <th scope="col"><ya-tr-span data-index="23-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Header" data-translation="Заголовок" data-ch="1" data-type="trSpan">Отзыв</ya-tr-span></th>
+              <th scope="col"><ya-tr-span data-index="24-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Header" data-translation="Заголовок" data-ch="1" data-type="trSpan">Внешний  ID</ya-tr-span></th>
+              <th scope="col"><ya-tr-span data-index="25-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Header" data-translation="Заголовок" data-ch="1" data-type="trSpan">Дата</ya-tr-span></th>
+            </tr>
+          </thead>
+
+          <tbody>
+           
+                {% for i in rev  %}
+                <tr>
+                <td><ya-tr-span data-index="26-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="data" data-translation="данные" data-ch="0" data-type="trSpan">{{ area }}</ya-tr-span></td>
+                <td><ya-tr-span data-index="27-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="data" data-translation="данные" data-ch="0" data-type="trSpan">{{ i.mail }}</ya-tr-span></td>
+                <td><ya-tr-span data-index="28-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="placeholder" data-translation="плейсхолдер" data-ch="0" data-type="trSpan">{{ i.review }}</ya-tr-span></td>
+                <td><ya-tr-span data-index="29-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="text" data-translation="текст" data-ch="0" data-type="trSpan">{{ i.id_1C }}</ya-tr-span></td>
+                <td><ya-tr-span data-index="30-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="text" data-translation="текст" data-ch="0" data-type="trSpan">{{ i.date }}</ya-tr-span></td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+      </div>
+
+
+    </div>   
+{% endblock %} 
+<!-- 

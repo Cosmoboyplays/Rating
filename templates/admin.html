@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+
+{% block title %}
+Admin
+{% endblock %}
+
+
+{% block body %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">Личный кабинет</h1>
+    <p class="fs-5 text-body-secondary"><ya-tr-span data-index="9-0" data-translated="false" data-source-lang="en" data-target-lang="ru" data-value="Quickly build an effective pricing table for your potential customers with this Bootstrap example. " data-translation="Быстро создайте эффективную таблицу цен для ваших потенциальных клиентов с помощью этого примера начальной загрузки. " data-ch="0" data-type="trSpan">
+        Приветствую вас, {{ current_user.name }}, на нашем сервисе! В личном кабинете вы можете добавить новое место, обновить или удалить действующие места, посмотреть отзывы о ваших местах. </ya-tr-span><ya-tr-span data-index="9-1" data-translated="false" data-source-lang="en" data-target-lang="ru" data-value="It’s built with default Bootstrap components and utilities with little customization." data-translation="Он построен с использованием компонентов и утилит начальной загрузки по умолчанию с небольшими настройками." data-ch="0" data-type="trSpan"></ya-tr-span></p>
+</div>
+
+<hr>  
+
+<div class="container">   
+    <h3>Действующие места</h3>
+
+    {% for i in places %}        
+    <div class="alert alert-info">
+        <h7>{{ i.area  }}</h7>    
+        <a href="/baza/{{ i.id_area}}" class="btn btn-warning">Отзывы</a>
+        <a href="/baza/{{ i.id_area }}/update" class="btn btn-warning">Обновить</a>
+        <a href="/stars/{{ i.area }}/{{ i.id_area }}/{{ current_user.id }}/{{ 0 }}" class="btn btn-warning">Ссылка</a>
+        <a href="/baza/{{ i.id_area }}/del" class="btn btn-danger">Удалить</a>  
+        <!-- -------------------------------
+        <a href="/api/last_review/{{ i.id_area }}" class="btn btn-warning">Получить json last_review</a>
+        <a href="/api/all_reviews/{{ i.area }}" class="btn btn-warning">Получить json all_review</a> -->
+    </div>          
+    {% endfor %}
+        
+    {% for cat, msg in get_flashed_messages(True) %}
+    <div class="flash {{cat}}">{{msg}}</div>
+    {% endfor %} 
+
+    <div style='padding: 3px; width: 900px; word-break: break-all; word-wrap: break-word;'>
+        <h5>Ваш токен для API: <a href="/update_token" class="btn btn-warning">Обновить токен</a> </h5>
+        {{ token }} 
+    </div>
+</div>    
+
+<!-- <ul>
+    <li>ID: {{ current_user.id }}
+    <li>Login: {{ current_user.login }}
+    <li>Name: {{ current_user.name }}
+    <li>Created on: {{ current_user.date_create }}
+<ul> -->
+{% endblock %}
