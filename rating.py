@@ -21,7 +21,6 @@ app.config['SECRET_KEY'] = 'cf39dca40b607927dc14bc446005ce39b6079ea2'
 api = Api(app)
 jwt = JWTManager(app)
 
-
 @manager.user_loader
 def load_user(rating_users_id):
     with session_maker() as db_session:

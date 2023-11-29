@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from .models.base import Base
 
 engine = create_engine(
-    'mysql+pymysql://root:.Cosmos534534@localhost/Rating'
+    'mysql+pymysql://root:Cosmos534534@localhost:3306/Rating'
 )
 
 session_maker = sessionmaker(
